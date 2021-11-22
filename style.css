@@ -13,7 +13,7 @@ font-family:Courier new,monospace;
 }
 
 .names{
-font-weight:666;
+font-weight:999;
 font-family:cursive;
 }
 
@@ -102,7 +102,7 @@ cursor:pointer;
 }
 
 .flm .card-body a i:hover{
-text-decoration:overline;
+text-decoration:none;
 }
 
 .fab {
