@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+.name{
+font-weight:999;
+font-family:Courier new,monospace;
+}
+
+.names{
+font-weight:666;
+font-family:cursive;
+}
+
+body{
+background-image:url("https://images.unsplash.com/photo-1473081556163-2a17de81fc97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80");
+background-repeat:no-repeat;
+background-size:100% 100%;
+background-position:center;
+object-fit:cover;
+}
+
+.fira {
+font-family: 'Fira Code', monospace;
+}
+
+.card {
+border-radius:10px;
+color:white;
+background:transparent;
+margin:auto;
+box-shadow:1px 1px 10px 1px rgba(255,255,255,0.2);
+}
+
+.card img{
+width:40%;
+height:40%;
+border-radius:100%;
+margin:auto;
+margin-top:35px;
+box-shadow:0px 0px 20px 2px rgba(255,255,255,0.4);
+}
+
+.gray {
+color:#Ccc;
+}
+
+.fa-street-view{
+color:#ccc;
+background:black;
+padding:5px;
+border-radius:50%;
+}
+
+.carousel-item img{
+width:100%;
+min-height:300px!important;
+height:350px;
+}
+
+.heading{
+text-decoration:underline;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+opacity:0.1;
+color:white;
+width:0;
+}
+
+.carousel-control-prev:hover {
+width:35px;
+opacity:0.4;
+}
+
+.carousel-control-next:hover {
+width:35px;
+opacity:0.4;
+}
+
+.flm{
+box-shadow:none;
+background:rgb(255,255,255);
+}
+
+.flm .card-body {
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.flm .card-body a i{
+margin:0px 8px;
+padding:3px;
+cursor:pointer;
+}
+
+.flm .card-body a i:hover{
+text-decoration:overline;
+}
+
+.fab {
+font-size:35px;
+background:transparent;
+border-radius:50%;
+}
+
+.fa-facebook{
+color:#4267B2;
+}
+
+.fa-instagram {
+background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.fa-telegram{
+color:#0888cc;
+}
+
+.fa-twitter{
+color:#1DA1F2;
+}
+
+.fa-linkedin{
+color:#007ba7;
+}
+
+.fa-github{
+color:black;
+}
