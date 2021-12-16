@@ -7,6 +7,10 @@ box-sizing:border-box;
 font-family: 'Poppins', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .name{
 font-weight:999;
 font-family:Courier new,monospace;
