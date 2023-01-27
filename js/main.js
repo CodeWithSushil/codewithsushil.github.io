@@ -1,5 +1,5 @@
-const date = new Date();
-const year = date.getFullYear();
+let date = new Date();
+let year = date.getFullYear();
 document.getElementById("year").innerHTML = year;
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
