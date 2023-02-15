@@ -1,6 +1,6 @@
 let date = new Date();
 let year = date.getFullYear();
-console.log(year)
+//console.log(year)
 document.querySelector("#year").innerHTML = year;
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
