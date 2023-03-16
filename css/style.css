@@ -153,3 +153,8 @@ script {
 .card #img{
   border-radius: 0!important;
 }
+
+.contact{
+    width: 100%;
+    color: #fff;
+}
