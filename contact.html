@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" href="images/favicon.ico">
-    <title>Code With Sushil</title>
+    <title>Contact</title>
     <link rel="manifest" href="site.webmanifest">
     <link href="http://codewithsushil.github.io/" rel="canonical" />
     <meta content="This blog is update any things like HTML5, CSS3, JavaScript, Bootstrap, PHP, MySQl relate and my all project, tricks, tips, keep coding. Happy Coding." name="description" />
@@ -48,6 +48,7 @@
 
     <div class="container contact mx-auto my-5">
         <div class="mx-3 my-5">
+            <h2 class="text-center mb-5 text-warning">Contact</h2>
             <form method="POST" autocomplete="off">
 
                 <div class="form-group">
@@ -78,7 +79,7 @@
     <script src="./js/jquery-3.3.1.slim.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         function sendMail() {
             const name = document.getElementById("name").value;
@@ -98,10 +99,11 @@
 
                 Email.send({
                     SecureToken: "90845001-2870-420b-825c-c9b1bacc230c",
-                    To: `${email}`,
+                    To: "rahulnand306@gmail.com",
                     From: "rahulnand306@gmail.com",
                     Subject: `${subject}`,
-                    Body: `full Name: <b>${name}</b> <br><p>${message}</p>`
+                    Body: `Hello Sushil Kumar,<br/><br/>
+                    <p>${message}</p><br><br><i><b>Regards,</b></i><br/>Name:<i>${name}</i><br/>Email:<i>${email}</i><br/>`
                 }).then(
                     message => alert(message)
                 );
@@ -110,5 +112,4 @@
         }
     </script>
 </body>
-
 </html>
