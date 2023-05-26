@@ -53,7 +53,7 @@
 
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -61,12 +61,12 @@
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="subject" aria-describedby="emailHelp" required>
                 </div>
 
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
+                    <textarea class="form-control" id="message" rows="3" required></textarea>
                 </div>
 
                 <button onclick="sendMail()" type="button" class="btn btn-success">Send</button>
@@ -79,7 +79,7 @@
     <script src="./js/jquery-3.3.1.slim.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <script>
         function sendMail() {
             const name = document.getElementById("name").value;
@@ -97,19 +97,44 @@
                 alert("Enter your message.")
             } else {
 
-                Email.send({
-                    SecureToken: "90845001-2870-420b-825c-c9b1bacc230c",
-                    To: "rahulnand306@gmail.com",
-                    From: "rahulnand306@gmail.com",
-                    Subject: `${subject}`,
-                    Body: `Hello Sushil Kumar,<br/><br/>
-                    <p>${message}</p><br><br><i><b>Regards,</b></i><br/>Name: &nbsp;<i>${name}</i><br/>Email: &nbsp;<i>${email}</i><br/>`
-                }).then(
-                    message => alert(message)
-                );
-                window.location.href = "index.html";
+                // Firebase Realtime Database URL
+                const URL = "https://otp-login-83ea0-default-rtdb.firebaseio.com";
+
+                // Collection or Table name
+                const PATH = "contacts";
+
+                // Database connection 
+                const database = URL + "/" + PATH + ".json";
+
+                // Send Data
+                const res = fetch(database,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    // Initialized send data and value
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        subject: subject,
+                        message: message
+                    }),
+                });
+
+                // Checking send data
+                if (res) {
+                    alert("Data send successfully");
+                    window.location.href = "index.html";
+                } else {
+                    alert("Oops, something went wrong!");
+                    window.location.href = "index.html";
+                }
+
             }
         }
     </script>
 </body>
+
 </html>
