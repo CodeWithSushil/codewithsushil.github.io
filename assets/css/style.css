@@ -169,6 +169,7 @@ script {
 }
 
 .card img{
-    background: linear-gradient(blue,fuchsia,yellow,orange,red,purple,teal);
-    padding: 4px;
+    background: linear-gradient(blue,fuchsia,yellow,orange,red,purple)!important;
+    background: -webkit-linear-gradient(blue,fuchsia,yellow,orange,red,purple)!important;
+    padding: 4px!important;
 }
