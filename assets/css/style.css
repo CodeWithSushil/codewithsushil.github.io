@@ -8,7 +8,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smootht;
 }
 
 .name {
@@ -168,8 +168,8 @@ script {
     margin: 0px !important;
 }
 
-.card img{
-    background: linear-gradient(blue,fuchsia,yellow,orange,red,purple)!important;
-    background: -webkit-linear-gradient(blue,fuchsia,yellow,orange,red,purple)!important;
-    padding: 4px!important;
+.card img {
+    background: linear-gradient(blue, fuchsia, yellow, orange, red, purple) !important;
+    background: -webkit-linear-gradient(blue, fuchsia, yellow, orange, red, purple) !important;
+    padding: 4px !important;
 }
