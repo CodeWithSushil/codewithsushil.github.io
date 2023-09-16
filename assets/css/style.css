@@ -132,8 +132,11 @@ body {
     color: #0888cc;
 }
 
-.fa-twitter {
-    color: #1DA1F2;
+.fa-x-twitter {
+    
+    color: #000;
+    background-color: #fff;
+    font-size: 2rem;
 }
 
 .fa-linkedin {
