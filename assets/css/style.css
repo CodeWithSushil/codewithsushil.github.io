@@ -147,6 +147,10 @@ body {
     color: black;
 }
 
+.fa-youtube{
+    color: red;
+}
+
 script {
     display: none;
     visibility: hidden;
