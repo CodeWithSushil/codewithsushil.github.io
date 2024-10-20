@@ -1,5 +1,5 @@
 {
-  "name": "CodeWithSushil",
+  "name": "codewithsushil",
   "private": true,
   "version": "4.0.0",
   "type": "module",
@@ -15,5 +15,23 @@
   "devDependencies": {
     "vite": "^5.4.9",
     "tailwindcss": "^3.4.14"
-  }
+  },
+  "description": "Code With Sushil official portfolio website",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeWithSushil/codewithsushil.github.io.git"
+  },
+  "keywords": [
+    "CodeWithSushil",
+    "Code",
+    "With",
+    "Sushil"
+  ],
+  "author": "Sushil Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeWithSushil/codewithsushil.github.io/issues"
+  },
+  "homepage": "https://github.com/CodeWithSushil/codewithsushil.github.io#readme"
 }
