@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-white shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <!-- Logo Section -->
+          <div class="flex-shrink-0 flex items-center">
+            <a href="/" class="text-xl font-bold text-gray-800">Logo</a>
+          </div>
+          
+          <!-- Hamburger Button (Mobile) -->
+          <div class="flex items-center sm:hidden">
+            <button id="mobile-menu-button" class="text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden sm:flex sm:space-x-6 items-center">
+            <a href="/" class="text-gray-800 hover:text-gray-500">Home</a>
+            <a href="/about" class="text-gray-800 hover:text-gray-500">About</a>
+            <a href="/services" class="text-gray-800 hover:text-gray-500">Services</a>
+            <a href="/contact" class="text-gray-800 hover:text-gray-500">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Initially hidden) -->
+      <div id="mobile-menu" class="hidden sm:hidden">
+        <a href="/" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
+        <a href="/about" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">About</a>
+        <a href="/services" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Services</a>
+        <a href="/contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Contact</a>
+      </div>
+    </nav>
+
+    <script>
+      // JavaScript to toggle the mobile menu
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
