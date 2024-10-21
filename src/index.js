@@ -1,4 +1,5 @@
-import './style.css';
+import '../public/assets/css/style.css';
+import './main.js';
 
 import gsap from 'gsap';
 import * as THREE from 'three';
