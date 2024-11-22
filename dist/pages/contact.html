@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="android-chrome" sizes="512x512" href="images/android-chrome-512x512.png">
+    <link rel="android-chrome" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <title>Contact</title>
+    <link rel="manifest" href="site.webmanifest">
+    <link href="http://codewithsushil.github.io/" rel="canonical" />
+    <meta content="This blog is update any things like HTML5, CSS3, JavaScript, Bootstrap, PHP, MySQl relate and my all project, tricks, tips, keep coding. Happy Coding." name="description" />
+    <meta content="https://codewithsushil.github.io/" property="og:url" />
+    <meta content="Code With Sushil" property="og:title" />
+    <meta name="Keywords" content="HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, Node.js, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website">
+    <meta content="This blog is update any things like HTML5, CSS3, JavaScript, Bootstrap, PHP, MySQL relate and my all project, tricks, tips, keep coding. Happy Coding." property="og:description" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <h4 class="name">Code With Sushil</h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item m-auto active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" href="pages/index.html">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container contact mx-auto my-5">
+        <div class="mx-3 my-5">
+            <h2 class="text-center mb-5 text-warning">Contact</h2>
+            <form method="POST" autocomplete="off">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" aria-describedby="emailHelp" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                </div>
+
+                <button onclick="sendMail()" type="button" class="btn btn-success">Send</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script>
+        function sendMail() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            if (name == "") {
+                alert("Enter your full Name.")
+            } else if (email == "") {
+                alert("Enter your Email.")
+            } else if (subject == "") {
+                alert("Enter your Subject.")
+            } else if (message == "") {
+                alert("Enter your message.")
+            } else {
+
+                // Firebase Realtime Database URL
+ const URL = "https://otp-login-83ea0-default-rtdb.firebaseio.com";
+
+                // Collection or Table name
+                const PATH = "contacts";
+
+                // Database connection 
+                const database = URL + "/" + PATH + ".json";
+
+                // Send Data
+                const res = fetch(database,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    // Initialized send data and value
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        subject: subject,
+                        message: message
+                    }),
+                });
+
+                // Checking send data
+                if (res) {
+                    alert("Data send successfully");
+                    window.location.href = "index.html";
+                } else {
+                    alert("Oops, something went wrong!");
+                    window.location.href = "contact.html";
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

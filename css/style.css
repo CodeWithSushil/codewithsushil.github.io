@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#navbar {
+  width: 100%;
+  padding: 10rem;
+}
+#navbar .nav-left{
+  width: 50%;
+  background: red;
+}
+.nav-right{
+  width: 50%;
+  background: blue;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+h2{
+  color: #789;
+}

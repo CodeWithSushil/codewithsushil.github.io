@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl in Rain</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+    :root {
+      --background_color: #0c0c0c;
+      --rainDrop: #08d7ee;
+      --pink: #ef087b;
+      --shadeBlue: #351dae;
+      --neon: #7f2bba;
+      --black: #3a312e;
+      --skin: #dbb94b;
+      --lamp: #f57017;
+      --lampShade: #a97b5d;
+    }
+
+    html {
+      overflow: hidden;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      max-width: 100%;
+      background: linear-gradient(to bottom, var(--background_color) 90%, white);
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #rainDrop {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      background: linear-gradient(to bottom, var(--rainDrop), transparent);
+      width: 0.25em;
+      height: 1.5em;
+      transform: rotate(340deg);
+      border-radius: 50% 50% 90% 90%;
+      animation: rainFall 0.7s linear infinite;
+      z-index: 2;
+    }
+
+    .girl {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      z-index: 3;
+      top: 20%;
+      overflow: hidden;
+
+    }
+
+    #head {
+      position: absolute;
+      display: block;
+      width: 2em;
+      height: 2.2em;
+      background: var(--black);
+      border-radius: 50%;
+      transform: rotate(40deg);
+      z-index: 5;
+    }
+
+    #hair1 {
+      position: absolute;
+      display: block;
+      width: 1em;
+      height: 2em;
+      transform: translate(130%, 20%) rotate(350deg);
+      border-radius: 0% 70% 50% 40%;
+      background: var(--black);
+      animation: hairMove 1s linear infinite;
+      z-index: 6;
+    }
+
+    #neck {
+      position: absolute;
+      display: block;
+      width: 0.7em;
+      height: 0.7em;
+      background: var(--skin);
+      transform: translate(20%, 170%);
+    }
+
+    #top {
+      position: absolute;
+      display: block;
+      width: 2.7em;
+      height: 2.3em;
+      background: var(--pink);
+      transform: translate(5%, 110%);
+      border-radius: 25% 25% 35% 35%;
+      z-index: 9;
+    }
+
+    #skirt {
+      position: absolute;
+      display: block;
+      width: 4.3em;
+      height: 4em;
+      background: var(--pink);
+      transform: translate(5%, 140%);
+      border-radius: 50% 50% 5% 5%;
+      z-index: 6;
+    }
+
+    #armLeft,
+    #armRight {
+      position: absolute;
+      display: block;
+      width: 2em;
+      height: 0.7em;
+      background: var(--pink);
+      transform: translate(-70%, 300%)rotate(330deg);
+      border-radius: 15% 25% 25% 25%;
+      z-index: 9;
+    }
+
+    #armLeftFront,
+    #armRightFront {
+      position: absolute;
+      display: block;
+      width: 1.6em;
+      height: 0.7em;
+      background: var(--skin);
+      transform: translate(-160%, 325%)rotate(20deg);
+      border-radius: 35% 40% 25% 35%;
+    }
+
+    #hand {
+      position: absolute;
+      display: block;
+      width: 0.5em;
+      height: 1.5em;
+      background: var(--skin);
+      transform: translate(-750%, 140%)rotate(80deg);
+      border-radius: 70%;
+      animation: handMove 1s linear infinite;
+    }
+
+    #armRight {
+      transform: translate(75%, 283%)rotate(21deg);
+    }
+
+    #armRightFront {
+      transform: translate(110%, 400%)rotate(130deg);
+    }
+
+    #legLeft,
+    #legRight {
+      position: absolute;
+      display: block;
+      width: 0.5em;
+      height: 1.7em;
+      background: var(--skin);
+      transform: translate(-120%, 460%);
+      border-radius: 35% 40% 25% 35%;
+      z-index: 3;
+    }
+
+    #legRight {
+      transform: translate(180%, 460%);
+    }
+
+    #leftFoot,
+    #rightFoot {
+      position: absolute;
+      display: block;
+      width: 0.8em;
+      height: 0.5em;
+      background: var(--black);
+      transform: translate(-90%, 1700%);
+      border-radius: 30%;
+      z-index: 6;
+    }
+
+    #rightFoot {
+      transform: translate(95%, 1700%);
+    }
+
+    #umbrella {
+      position: relative;
+      display: block;
+      color: var(--shadeBlue);
+      font-size: 10em;
+      transform: translate(20%, -10%) rotate(5deg);
+      z-index: 7;
+      animation: umbrellaMove 2s linear infinite;
+    }
+
+    .lampPole {
+      position: absolute;
+      display: block;
+      width: 0.3em;
+      height: 22em;
+      background: linear-gradient(to right, rgb(11, 10, 10), var(--black));
+      left: 10%;
+      top: 32%;
+      z-index: 1;
+    }
+
+    .lamp {
+      position: absolute;
+      display: block;
+      width: 2em;
+      height: 1.5em;
+      background: linear-gradient(to bottom, var(--lamp), var(--lampShade));
+      border-radius: 1.7em;
+      left: 9%;
+      top: 29%;
+      z-index: 2;
+      animation: blurry 1s linear infinite;
+    }
+
+    @keyframes blurry {
+      from {
+        filter: blur(5px);
+      }
+
+      to {
+        filter: blur(7px);
+      }
+    }
+
+
+    @keyframes rainFall {
+      0% {
+        opacity: 0.9;
+      }
+
+      100% {
+        opacity: 0.2;
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes handMove {
+      0% {
+        transform: translate(-750%, 140%)rotate(80deg);
+      }
+
+      50% {
+        transform: translate(-750%, 140%)rotate(70deg);
+      }
+
+      100% {
+        transform: translate(-750%, 140%)rotate(83deg);
+      }
+    }
+
+    @keyframes hairMove {
+      0% {
+        transform: translate(130%, 20%) rotate(350deg);
+      }
+
+      50% {
+        transform: translate(130%, 20%) rotate(340deg);
+      }
+
+      100% {
+        transform: translate(130%, 20%) rotate(350deg);
+      }
+    }
+
+    @keyframes umbrellaMove {
+      0% {
+        transform: translate(20%, -10%) rotate(5deg);
+      }
+
+      50% {
+        transform: translate(22%, -9%) rotate(10deg);
+      }
+
+      100% {
+        transform: translate(20%, -10%) rotate(5deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="rain1" id="rainDrop"></div>
+    <div class="lamp"></div>
+    <div class="lampPole"></div>
+    <div class="girl" id="girl">
+      <i class="fa fa-umbrella" id="umbrella"></i>
+      <div id="head"></div>
+      <div id="hair1"></div>
+      <div id="hair2"></div>
+      <div id="neck"></div>
+      <div id="top"></div>
+      <div id="skirt"></div>
+      <div id="armLeft"></div>
+      <div id="armLeftFront"></div>
+      <div id="armRight"></div>
+      <div id="armRightFront"></div>
+      <div id="hand"></div>
+      <div id="fingers"></div>
+      <div id="legLeft"></div>
+      <div id="legRight"></div>
+      <div id="leftFoot"></div>
+      <div id="rightFoot"></div>
+    </div>
+  </div>
+  <script>
+    // CodeWithSushil - All rights reserved
+
+    // Copyright © 2023 Sushil Kumar
+
+    var dropCount = 300;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var iw = document.documentElement.clientWidth;
+    var ih = document.documentElement.clientHeight;
+    var bw = document.getElementsByTagName("body")[0].clientWidth;
+    var bh = document.getElementsByTagName("body")[0].clientHeight;
+
+
+    var block = document.getElementsByTagName("body")[0];
+    var rain = document.getElementById("rainDrop");
+    var dot = document.getElementById("dot");
+
+    var initialTop = block.clientHeight * -1;
+
+    var width = w || iw || bw;
+    var height = h || ih || bh;
+
+
+    for (var i = 0; i < dropCount; ++i) {
+      var posY = Math.round(Math.random() * height);
+      var posX = Math.round(Math.random() * width);
+      var drops = document.createElement("div");
+      drops.innerHTML = rain.outerHTML;
+      var speed = 1000 * 30;
+      var speedDelay = 2000;
+      drops.setAttribute("class", "drops" + (3 - Math.floor(speed / 1000 / 8)));
+      block.appendChild(drops);
+
+
+      drops.animate(
+    [
+          {
+            transform: "translate3d(" + 0 + "vw, " + initialTop + "vh, 0)"
+    },
+          {
+            transform: "translate3d(" + Math.random() * 256 + "vw, " + posY + "vh, 0)"
+    }
+    ],
+        {
+          delay: Math.random() * -speed,
+          duration: speedDelay,
+          iterations: 1000
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>
