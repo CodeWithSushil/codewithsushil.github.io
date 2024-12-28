@@ -1,6 +1,7 @@
 import './style.css'
 import 'dotenv/config'
-//import config from './config.js'
+import config from './config.js'
+import Card from './Components/Card.js'
 
 document.querySelector('#app').innerHTML = `
 <h1 class="text-blue-600">Hello Sushil!</h1>
