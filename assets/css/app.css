@@ -1,0 +1,123 @@
+:root{
+  --radius: 12px;
+  --font:'Inter', sans-serif;
+  --shadow:0 8px 18px rgba(0,0,0,.18);
+  --transition:.25s ease;
+  --bg:#f4f7fc;
+}
+
+body{
+  background: var(--bg);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+.float{
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+.pulse{
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.25);
+    }
+}
+
+
+/* Gradient Colors */
+.btn-primary{
+    background:linear-gradient(135deg,#4f8cff,#2563eb);
+}
+
+.btn-success{
+    background:linear-gradient(135deg,#34d399,#16a34a);
+}
+
+.btn-danger{
+    background:linear-gradient(135deg,#ff6b6b,#dc2626);
+}
+
+.btn-warning{
+    background:linear-gradient(135deg,#ffd54f,#f59e0b);
+    color:#222;
+}
+
+.btn-info{
+    background:linear-gradient(135deg,#67e8f9,#0284c7);
+}
+
+.btn-purple{
+    background:linear-gradient(135deg,#c084fc,#7c3aed);
+}
+.text-purple{
+color: transparent;
+background:linear-gradient(135deg,#c084fc,#7c3aed);
+background-clip: text;
+-webkit-text-fill-color:transparent;
+-webkit-background-clip: text;
+}
+
+.btn-dark{
+    background:linear-gradient(135deg,#4b5563,#111827);
+}
+
+
+/* Social button */
+.fa-facebook {
+    color: #4267B2;
+}
+
+.fa-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-telegram {
+    color: #0888cc;
+}
+
+.fa-x-twitter {
+
+    color: #000;
+    background-color: #fff;
+    font-size: 2rem;
+}
+
+.fa-linkedin {
+    color: #007ba7;
+}
+
+.fa-github {
+    color: black;
+}
+
+.fa-youtube{
+    color: #dc2626;
+}
+
+.mycard img {
+    background: linear-gradient(blue, fuchsia, yellow, orange, red, purple) !important;
+    background: -webkit-linear-gradient(blue, fuchsia, yellow, orange, red, purple) !important;
+    padding: 4px !important;
+}
+
+
+/* media query for mobile */
+
