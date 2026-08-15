@@ -1,3 +1,25 @@
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+const themeIcon = themeToggleBtn.querySelector('.theme-icon-active');
+const themeText = document.getElementById('theme-text');
+const htmlElement = document.documentElement;
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    // Set Bootstrap 5 attribute
+    htmlElement.setAttribute('data-bs-theme', newTheme);
+
+    // Update icon and text dynamically
+    if (newTheme === 'dark') {
+        themeIcon.className = 'bi bi-moon-stars-fill theme-icon-active text-warning';
+        themeText.textContent = 'Dark';
+    } else {
+        themeIcon.className = 'bi bi-sun-fill theme-icon-active';
+        themeText.textContent = 'Light';
+    }
+});
+
 let date = new Date();
 let year = date.getFullYear();
 //console.log(year)
@@ -11,3 +33,5 @@ ga('create', 'UA-3855518-1', 'auto');
 ga('require', 'displayfeatures');
 ga('require', 'GTM-WJ88MZ5');
 ga('send', 'pageview');
+
+

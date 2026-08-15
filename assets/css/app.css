@@ -1,21 +1,75 @@
 :root{
   --radius: 12px;
-  --font:'Inter', sans-serif;
+  --font: 'Inter', sans-serif;
   --shadow:0 8px 18px rgba(0,0,0,.18);
   --transition:.25s ease;
   --bg:#f4f7fc;
 }
 
-body{
-  background: var(--bg);
+*{
   font-family: var(--font);
-  line-height: 1.6;
 }
 
-.navbar{
-    background:linear-gradient(135deg, #c084fc, #7c3aed);
-    backdrop-filter:blur(20px);
-    box-shadow:0 10px 40px rgba(0,0,0,.15);
+/* --- 1. Custom Two-Color Combination Navbar Styling --- */
+.custom-dual-navbar {
+  /* Replace these two colors with your preferred combination */
+  background:linear-gradient(135deg, #34d399, #16a34a);
+  box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Adjust branding and link colors for the custom navbar */
+.custom-dual-navbar .navbar-brand,
+.custom-dual-navbar .nav-link {
+  color: #e2e8f0;
+}
+
+.custom-dual-navbar .nav-link:hover,
+.custom-dual-navbar .nav-link:focus {
+  color: #38bdf8;
+}
+
+/* --- 2. Custom Hamburger / Close Icon Morphing Animation --- */
+.custom-toggler {
+  border: none;
+  padding: 0.25rem 0.5s;
+  background: transparent;
+}
+
+.custom-toggler:focus {
+  box-shadow: none;
+}
+
+/* Hide default bootstrap icon wrapper */
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+  width: 24px;
+  height: 24px;
+}
+
+/* Custom Icon transition setup */
+.custom-toggler .bi {
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Toggle state logic: When collapsed is open, show 'X', else show 'List' */
+.custom-toggler[aria-expanded="true"] .bi-list::before {
+  content: "\f62a"; /* Bootstrap icon code for 'x' (Close) */
+}
+
+/* --- 3. Theme Toggle Switch Styling --- */
+#theme-toggle-btn {
+  border: 1px solid #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+#theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 .float{
@@ -70,10 +124,12 @@ body{
 .btn-purple{
     background:linear-gradient(135deg,#c084fc,#7c3aed);
 }
-.text-purple{
+
+.text-dangers{
 color: transparent;
-background:linear-gradient(135deg,#c084fc,#7c3aed);
+background:linear-gradient(135deg, #ff6b6b, #dc2626);
 background-clip: text;
+font-weight: 700;
 -webkit-text-fill-color:transparent;
 -webkit-background-clip: text;
 }
@@ -100,10 +156,9 @@ background-clip: text;
 }
 
 .fa-x-twitter {
-
-    color: #000;
-    background-color: #fff;
-    font-size: 2rem;
+  color: #000;
+  background-color: #fff;
+  font-size: 2rem;
 }
 
 .fa-linkedin {
