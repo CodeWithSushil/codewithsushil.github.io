@@ -1,96 +1,1021 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" href="./assets/images/logo.png">
-  <meta name="description" content="Codw With Sushil | Sushil Kumar">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=inter:400" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/app.css" />
-  <title>
-    Code With Sushil | Sushil Kumar
-  </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="./assets/images/favicon.ico">
+<meta name="robots" content="index, follow">
+<title>Code With Sushil | Sushil Kumar | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#060816;
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.1);
+    --text:#fff;
+    --muted:#94a3b8;
+    --primary:#8b5cf6;
+    --secondary:#00f5ff;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* Animated Background */
+/* ========================= */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-10;
+    overflow:hidden;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(150px);
+    opacity:.5;
+    animation:move 12s infinite alternate;
+}
+
+.blob:nth-child(1){
+    width:400px;
+    height:400px;
+    background:#8b5cf6;
+    top:-100px;
+    left:-100px;
+}
+
+.blob:nth-child(2){
+    width:450px;
+    height:450px;
+    background:#00f5ff;
+    bottom:-100px;
+    right:-100px;
+}
+
+.blob:nth-child(3){
+    width:300px;
+    height:300px;
+    background:#ff0080;
+    top:40%;
+    left:50%;
+}
+
+@keyframes move{
+    from{
+        transform:translateY(-50px) translateX(-50px);
+    }
+    to{
+        transform:translateY(50px) translateX(50px);
+    }
+}
+
+/* ========================= */
+/* Navbar */
+/* ========================= */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(0,0,0,0.2);
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+}
+
+.logo{
+    font-size:1.7rem;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:linear-gradient(90deg,#8b5cf6,#00f5ff);
+    left:0;
+    bottom:-6px;
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* ========================= */
+/* Hero */
+/* ========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:60px;
+    align-items:center;
+}
+
+.tag{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:var(--secondary);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#8b5cf6,#00f5ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:35px;
+    font-size:1.1rem;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    outline:none;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,#8b5cf6,#00f5ff);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+    background:rgba(255,255,255,.04);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* ========================= */
+/* Glass Card */
+/* ========================= */
+
+.glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:35px;
+    transition:.4s;
+}
+
+.glass:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(139,92,246,.25);
+}
+
+.window{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{background:#ff5f57;}
+.yellow{background:#febc2e;}
+.green{background:#28c840;}
+
+pre{
+    color:#00f5ff;
+    overflow:auto;
+    line-height:1.8;
+}
+
+/* ========================= */
+/* Sections */
+/* ========================= */
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* ========================= */
+/* Skills */
+/* ========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card-icon{
+    font-size:2rem;
+    margin-bottom:20px;
+    color:var(--secondary);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* ========================= */
+/* Projects */
+/* ========================= */
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.project-tags span{
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    font-size:.9rem;
+}
+
+/* ========================= */
+/* Timeline */
+/* ========================= */
+
+.timeline{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    width:4px;
+    background:linear-gradient(#8b5cf6,#00f5ff);
+    top:0;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-content{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+}
+
+/* ========================= */
+/* Contact */
+/* ========================= */
+
+.contact-wrapper{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,textarea{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:15px;
+    color:white;
+    outline:none;
+    font-family:inherit;
+}
+
+textarea{
+    min-height:150px;
+}
+
+/* ========================= */
+/* Footer */
+/* ========================= */
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.05);
+    color:var(--muted);
+}
+
+/* ========================= */
+/* Scroll Animation */
+/* ========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ========================= */
+/* Cursor */
+/* ========================= */
+
+.cursor{
+    width:15px;
+    height:15px;
+    border:1px solid white;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .timeline::before{
+        left:20px;
+    }
+
+    .timeline-item{
+        width:100%;
+        left:0 !important;
+        text-align:left !important;
+        padding-left:60px;
+    }
+
+}
+
+</style>
 </head>
 <body>
-  <!-- Navbar Code -->
-  <nav class="navbar navbar-expand-lg custom-dual-navbar sticky-top">
-      <div class="container-lg">
-          <!-- Brand Logo / Name -->
-          <a class="navbar-brand fw-bold fs-4" href="/">
-              <img class="d-inline-block align-text-top" src="./assets/images/logo.png" alt="Logo" />
-              Code With Sushil
-          </a>
 
-          <!-- Right side container for mobile: Theme toggle + Custom Hamburger -->
-          <div class="d-flex align-items-center order-lg-last ms-lg-3">
-              <!-- Light/Dark Theme Toggle Switch Button -->
-              <button class="btn btn-sm rounded-pill px-2 py-1 me-2 d-flex align-items-center" id="theme-toggle-btn" title="Toggle theme">
-                    <i class="bi bi-sun-fill theme-icon-active"></i>
-                    <span class="ms-1 small d-none d-sm-inline" id="theme-text">Light</span>
-                </button>
+<div class="bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
 
-                <!-- Custom Animated Hamburger Toggler -->
-                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-list"></i>
-                </button>
-            </div>
+<div class="cursor"></div>
 
-            <!-- Navbar Links Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto mb-2 text-center mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./pages/index.html">Blog</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<header>
 
-    <!-- banner -->
-    <section class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center text-md-start">
-                    <h2>Hello, i’m <span>Sushil Kumar</span>.</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner exit -->
+<div class="container">
 
-    <!-- Page Content Sample -->
-    <div class="container my-5">
-        <div class="px-3 mb-4 bg-body-tertiary rounded-3 border">
-            <div class="container-fluid py-3">
-                <h1 class="display-6 text-success fw-bold">Who i am ?</h1>
-                <p class="col-md-8 ms-4 fs-6">This layout combines a dual-color custom gradient background, built-in structural toggling with transformable icons, and native light/dark mode compatibility.</p>
-                <button class="btn btn-success" type="button">Example Action</button>
-            </div>
-        </div>
-    </div>
+<nav>
 
-  <noscript>
-    Please enable JavaScript, or update your browser.
-  </noscript>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="./assets/js/app.js"></script>
+<div class="logo">Code With Sushil<span>.</span>
+</div>
+
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#journey">Journey</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div>
+
+<div class="tag">
+PHP Framework Engineer
+</div>
+
+<h1>
+Hi, I'm <span>Sushil Kumar</span>
+</h1>
+
+<p>
+I build modern PHP frameworks,
+developer tools, APIs, SDKs,
+and open-source ecosystems focused
+on performance and architecture.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn btn-primary">
+<i class="fa-solid fa-code"></i>
+Projects
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+<i class="fa-solid fa-paper-plane"></i>
+Contact
+</a>
+
+</div>
+
+</div>
+
+<div class="glass">
+
+<div class="window">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+
+<pre>
+
+class Developer {
+
+    public function build()
+    {
+        return [
+            'clean_code' => true,
+            'architecture' => 'SOLID',
+            'performance' => 'optimized',
+            'open_source' => true
+        ];
+    }
+
+}
+
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title reveal">
+<h2>About Me</h2>
+
+<p>
+Self-taught developer focused on
+modern backend architecture.
+</p>
+</div>
+
+<div class="glass reveal">
+
+<p style="line-height:1.9;color:var(--muted);">
+
+I'm a PHP developer and open-source contributor passionate about
+building frameworks, SDKs, tooling systems, authentication flows,
+and scalable backend ecosystems.
+
+I build projects like Hurricane Framework,
+BrushCSS, JSON-DB, and Supabase SDK for PHP.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<h2>Skills</h2>
+
+<p>Technologies I use regularly.</p>
+
+</div>
+
+<div class="grid">
+
+<div class="glass card reveal">
+
+<div class="card-icon">
+<i class="fa-solid fa-server"></i>
+</div>
+
+<h3>Backend</h3>
+
+<p>
+PHP 8.4, Slim, REST APIs,
+JWT, OAuth, WebSockets,
+PDO, MySQL.
+</p>
+
+</div>
+
+<div class="glass card reveal">
+
+<div class="card-icon">
+<i class="fa-solid fa-code"></i>
+</div>
+
+<h3>Frontend</h3>
+
+<p>
+HTML, CSS, JavaScript,
+Animations, Responsive UI,
+Modern UX.
+</p>
+
+</div>
+
+<div class="glass card reveal">
+
+<div class="card-icon">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+
+<h3>Architecture</h3>
+
+<p>
+MVC, SOLID, Design Patterns,
+PSR Standards,
+Dependency Injection.
+</p>
+
+</div>
+
+<div class="glass card reveal">
+
+<div class="card-icon">
+<i class="fa-solid fa-terminal"></i>
+</div>
+
+<h3>DevOps</h3>
+
+<p>
+GitHub Actions,
+Docker,
+Linux,
+Composer,
+CI/CD Pipelines.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<h2>Projects</h2>
+
+<p>Some things I've built.</p>
+
+</div>
+
+<div class="grid">
+
+<div class="glass reveal">
+
+<h3>Hurricane Framework</h3>
+
+<p>
+Modern PHP framework focused on
+performance and developer experience.
+</p>
+
+<div class="project-tags">
+<span>PHP</span>
+<span>Framework</span>
+<span>MVC</span>
+</div>
+
+</div>
+
+<div class="glass reveal">
+
+<h3>BrushCSS</h3>
+
+<p>
+Modern utility-first CSS engine
+built using PHP.
+</p>
+
+<div class="project-tags">
+<span>CSS</span>
+<span>PHP</span>
+<span>CLI</span>
+</div>
+
+</div>
+
+<div class="glass reveal">
+
+<h3>JSON-DB</h3>
+
+<p>
+JSON-based lightweight database
+system for PHP developers.
+</p>
+
+<div class="project-tags">
+<span>JSON</span>
+<span>Database</span>
+<span>PHP</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section id="journey">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<h2>Journey</h2>
+
+<p>My development journey.</p>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+<div class="timeline-content">
+<h3>2023</h3>
+<p>Started learning web development and PHP.</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-content">
+<h3>2024</h3>
+<p>Built APIs, frameworks, and authentication systems.</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-content">
+<h3>2025</h3>
+<p>Focused on open-source ecosystem tooling.</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-content">
+<h3>2026</h3>
+<p>Building scalable developer platforms and SDKs.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title reveal">
+
+<h2>Contact Me</h2>
+
+<p>Let's build something amazing.</p>
+
+</div>
+
+<div class="contact-wrapper">
+
+<div class="glass reveal">
+
+<h3 style="margin-bottom:20px;">
+Get In Touch
+</h3>
+
+<p style="line-height:1.9;color:var(--muted);">
+
+Available for:
+<br><br>
+
+• Backend Development
+<br>
+• API Engineering
+<br>
+• PHP Architecture
+<br>
+• Open Source Collaboration
+
+</p>
+
+<br>
+
+<div style="display:flex;gap:20px;font-size:1.4rem;">
+
+<a href="https://github.com/CodeWithSushil" target="_blank" style="color:white;">
+<i class="fa-brands fa-github"></i>
+</a>
+
+<a href="https://instagram.com/codewithsushil" target="_blank" style="color:white;">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://x.com/CodeSushil" target="_blank" style="color:white;">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="glass reveal">
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button class="btn btn-primary">
+<i class="fa-solid fa-paper-plane"></i>
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>
+©<span id="year"></span> Code With Sushil. All rights reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script>
+
+/* ========================= */
+/* Scroll Reveal */
+/* ========================= */
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+
+    reveals.forEach(item=>{
+
+        const windowHeight = window.innerHeight;
+        const revealTop = item.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+            item.classList.add('active');
+        }
+
+    });
+
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+revealOnScroll();
+
+/* ========================= */
+/* Cursor */
+/* ========================= */
+
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove',(e)=>{
+
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+
+});
+
+/* ========================= */
+/* Role Animation */
+/* ========================= */
+
+const roles = [
+    'PHP Framework Engineer',
+    'Open Source Developer',
+    'Backend Architect',
+    'SDK Engineer'
+];
+
+let roleIndex = 0;
+
+const tag = document.querySelector('.tag');
+
+setInterval(()=>{
+
+    roleIndex = (roleIndex + 1) % roles.length;
+
+    tag.textContent = roles[roleIndex];
+
+},2500);
+
+
+const date = new Date();
+const year = date.getFullYear();
+document.querySelector("#year").innerText = year;
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-3855518-1', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'GTM-WJ88MZ5');
+ga('send', 'pageview');
+</script>
+
 </body>
 </html>
